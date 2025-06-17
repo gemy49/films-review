@@ -119,6 +119,7 @@ a.secondary {
 }
 .search{
   background-color: lightgrey;
+  color: #1a1a1a;
 }
 .count{
   position: absolute;

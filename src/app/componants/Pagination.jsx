@@ -21,7 +21,7 @@ export default function Pagination({ page, totalPages, onPageChange }) {
 
   return (
     <nav aria-label="Movie pagination text-center " className="mt-4">
-      <ul className="pagination  justify-content-around w-25 mx-auto">
+      <ul className="pagination justify-content-around w-50 mx-auto">
         <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
           <button
             className="page-link bg-transparent text-secondary"
