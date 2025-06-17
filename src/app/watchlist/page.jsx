@@ -40,7 +40,7 @@ export default function WatchlistPage() {
   return (
     <div className="container py-4">
       <h1 className="mb-4 fw-bold">🎬 Your Watchlist</h1>
-      <div className="row">
+      <div className="row d-flex justify-content-center p-2">
         {watchlist.length > 0 ? (
           watchlist.map((movie) => (
             <WatchlistCard
