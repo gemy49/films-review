@@ -53,11 +53,16 @@ export default async function MovieDetailsPage({ params }) {
             <p ><strong>Duration:</strong> {movie.runtime} minutes</p>
             <p><strong>language:</strong> {movie.original_language}</p>
           </div>
-          <div><strong>studio:</strong> <img
+          <div className="d-flex justify-content-around align-items-center w-50">
+            <strong>studio:</strong> 
+          <div className="bg-wite">
+            <img
             src={`https://image.tmdb.org/t/p/w200${movie.production_companies[0].logo_path}`}
             alt={movie.production_companies[0].name}
             style={{ height: '30px', objectFit: 'contain' }}
-          /></div>
+          />
+          </div>
+            </div>
           <a className="btn  btn-outline-warning my-4 w-25 d-flex justify-content-center align-items-center " target="_blank" rel="noopener " href={`https://www.themoviedb.org/movie/${params.id}`}>
             <p className="m-1">Link</p>
             <FontAwesomeIcon className="mx-2" style={{ width: '15%' }} icon={faLink} /></a>
