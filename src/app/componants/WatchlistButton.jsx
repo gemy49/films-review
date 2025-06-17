@@ -20,7 +20,9 @@ export default function WatchlistHeartButton({ movieId, onRemove }) {
     e.stopPropagation();
 
     if (!session_id || !account_id) {
-      alert('You need to authenticate first.');
+      if (confirm('🔐 You need to authenticate with TMDB. Do you want to continue?')) {
+        window.location.href = '/create-session';
+      }
       return;
     }
 
@@ -44,15 +46,14 @@ export default function WatchlistHeartButton({ movieId, onRemove }) {
         setAdded(newState);
         fetchCount();
 
-        // 🧠 لو حذفناه من الـ Watchlist، شغّل onRemove
         if (!newState && onRemove) {
           onRemove(movieId);
         }
       } else {
-        console.error('Failed to toggle watchlist:', data);
+        console.error('❌ Failed to toggle watchlist:', data);
       }
     } catch (err) {
-      console.error('Error:', err);
+      console.error('❌ Error:', err);
     }
   };
 

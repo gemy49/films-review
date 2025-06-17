@@ -10,11 +10,10 @@ export default function CreateSessionPage() {
       const data = await res.json();
 
       if (data.success) {
-        // نغير هنا الـ redirect ليكون مباشر إلى صفحة Watchlist
-        const redirectUrl = `http://localhost:3000/watchlist?request_token=${data.request_token}`;
+        const redirectUrl = `http://localhost:3000/?request_token=${data.request_token}`;
         window.location.href = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=${redirectUrl}`;
       } else {
-        console.error("Failed to get request_token");
+        console.error("❌ Failed to get request_token");
       }
     };
 

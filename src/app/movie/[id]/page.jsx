@@ -33,7 +33,7 @@ export default async function MovieDetailsPage({ params }) {
           />
         </div>
         <div className="col-lg-8 py-4">
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-between">
             <h1 className="mb-0">{movie.title}</h1>
             <WatchlistHeartButton movieId={movie.id} />
 

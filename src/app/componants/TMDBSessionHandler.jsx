@@ -1,4 +1,3 @@
-// components/TMDBSessionHandler.jsx
 'use client';
 
 import { useEffect } from 'react';
@@ -12,14 +11,14 @@ export default function TMDBSessionHandler() {
 
   useEffect(() => {
     const handleTMDBSession = async () => {
-      const requestToken =
-        tokenFromURL || localStorage.getItem('request_token');
+      const requestToken = tokenFromURL || localStorage.getItem('request_token');
       if (!requestToken) return;
 
       localStorage.setItem('request_token', requestToken);
 
-      const storedSession = localStorage.getItem('session_id');
-      if (storedSession) return;
+      const existingSession = localStorage.getItem('session_id');
+      const existingAccount = localStorage.getItem('account_id');
+      if (existingSession && existingAccount) return;
 
       try {
         const res = await fetch(
@@ -32,24 +31,34 @@ export default function TMDBSessionHandler() {
         );
         const data = await res.json();
 
-        if (data.session_id) {
+        if (data.success && data.session_id) {
           localStorage.setItem('session_id', data.session_id);
 
-          // Get account_id
+          // Get account info
           const accountRes = await fetch(
             `https://api.themoviedb.org/3/account?api_key=${TMDB_API_KEY}&session_id=${data.session_id}`
           );
           const accountData = await accountRes.json();
+
           if (accountData.id) {
             localStorage.setItem('account_id', accountData.id);
+          } else {
+            console.warn('⚠️ session_id valid but account_id missing. Retrying might help.');
           }
 
-          // Cleanup: remove token from URL
+          // Clean URL
+          // Clean URL
           const url = new URL(window.location.href);
           url.searchParams.delete('request_token');
           window.history.replaceState({}, document.title, url.toString());
+
+          // 🔁 Reload once after session/account is set
+          setTimeout(() => {
+            window.location.reload();
+          }, 10); // نديه نصف ثانية عشان يخلص تخزين البيانات
+
         } else {
-          console.error('❌ Failed to create session:', data);
+          console.error('❌ Session creation failed. Token may be unapproved.');
         }
       } catch (err) {
         console.error('❌ TMDB session error:', err);
