@@ -55,7 +55,7 @@ export default async function MovieDetailsPage({ params }) {
           </div>
           <div className="d-flex justify-content-around align-items-center w-50">
             <strong>studio:</strong> 
-          <div className="bg-wite">
+          <div className="bg-white">
             <img
             src={`https://image.tmdb.org/t/p/w200${movie.production_companies[0].logo_path}`}
             alt={movie.production_companies[0].name}
