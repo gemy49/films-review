@@ -15,6 +15,10 @@
   gap: 64px;
   font-family: var(--font-geist-sans);
 }
+.star_icon {
+  font-size: 16px; /* أو الحجم اللي يناسبك */
+  transition: none;
+}
 
 @media (prefers-color-scheme: dark) {
   .page {
@@ -107,7 +111,31 @@ a.secondary {
 .footer img {
   flex-shrink: 0;
 }
-
+.translateMiddle{
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+.search{
+  background-color: lightgrey;
+}
+.count{
+  position: absolute;
+  top: 20%;
+  right:  -15%;
+  transform: translate(-50%, -50%);
+  background:white;
+  width: 20%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30%;
+  font-weight: bold;
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
