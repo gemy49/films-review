@@ -10,7 +10,11 @@ export default function CreateSessionPage() {
       const data = await res.json();
 
       if (data.success) {
-        const redirectUrl = `http://localhost:3000/?request_token=${data.request_token}`;
+        // نستخدم origin الحالي تلقائيًا (localhost أو السيرفر)
+        const origin = typeof window !== 'undefined' ? window.location.origin : '';
+        const redirectUrl = `${origin}/?request_token=${data.request_token}`;
+
+        // ريداريكت لـ TMDB مع توجيه العودة للـ redirectUrl
         window.location.href = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=${redirectUrl}`;
       } else {
         console.error("❌ Failed to get request_token");
