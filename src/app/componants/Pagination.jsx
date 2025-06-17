@@ -25,7 +25,11 @@ export default function Pagination({ page, totalPages, onPageChange }) {
         <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
           <button
             className="page-link bg-transparent text-secondary"
-            onClick={() => onPageChange(page - 1)}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' }); 
+              onPageChange(page - 1)
+            }
+            }
             disabled={page === 1}
           >
            <FontAwesomeIcon icon={faAngleLeft} />
@@ -39,7 +43,11 @@ export default function Pagination({ page, totalPages, onPageChange }) {
           >
             <button
               className="page-link bg-transparent text-secondary"
-              onClick={() => onPageChange(pg)}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                onPageChange(pg)
+              }
+            }
             >
               {pg}
             </button>
@@ -49,7 +57,9 @@ export default function Pagination({ page, totalPages, onPageChange }) {
         <li className={`page-item ${page === totalPages ? 'disabled' : ''}`}>
           <button
             className="page-link bg-transparent text-secondary"
-            onClick={() => onPageChange(page + 1)}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' }); 
+              onPageChange(page + 1)}}
             disabled={page === totalPages}
           >
            <FontAwesomeIcon icon={faAngleRight} />

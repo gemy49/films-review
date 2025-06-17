@@ -3,9 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useWatchlist } from '../context/WatchlistContext.jsx';
 import WatchlistCard from '../componants/WatchlistCard';
-import Loading from '../loading';
-import Link from 'next/link.js';
-
+import NoData from '../componants/NoData.jsx';
 export default function WatchlistPage() {
   const [watchlist, setWatchlist] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,31 +33,28 @@ export default function WatchlistPage() {
     fetchWatchlist();
   }, [sessionId, accountId]);
 
-  if (loading) return <Loading />;
+  if (loading) return <NoData loading={true}/>;
 
-  return (
-    <div className="container py-4">
-      <h1 className="mb-4 fw-bold">🎬 Your Watchlist</h1>
-      <div className="row d-flex justify-content-center p-2">
-        {watchlist.length > 0 ? (
-          watchlist.map((movie) => (
-            <WatchlistCard
-              key={movie.id}
-              movie={movie}
-              onRemove={(id) => {
-                setWatchlist((prev) => prev.filter((m) => m.id !== id));
-                fetchCount(); // ⬅️ تحديث العداد عند الحذف
-              }}
-            />
-          ))
-        ) : (
-          <div className="flexbox justify-center align-center text-center">
-            <h1 style={{ fontSize: '12rem' }}>💔</h1>
-            <h2>No movies in your watchlist</h2>
-            <Link href={"/"} className="btn text-center btn-warning mt-4 w-25 rounded-pill p-2 fs-5">Go To Add Movies</Link >
-          </div>
-        )}
-      </div>
+ return (
+  <div className="container py-4">
+    <h1 className="mb-4 fw-bold">🎬 Your Watchlist</h1>
+    <div className="row d-flex justify-content-center ">
+      {watchlist.length > 0 ? (
+        watchlist.map((movie) => (
+          <WatchlistCard
+            key={movie.id}
+            movie={movie}
+            onRemove={(id) => {
+              setWatchlist((prev) => prev.filter((m) => m.id !== id));
+              fetchCount();
+            }}
+          />
+        ))
+      ) : (
+        <NoData loading={false} />
+      )}
     </div>
-  );
+  </div>
+);
+
 }
