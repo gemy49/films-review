@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useWatchlist } from '../context/WatchlistContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 export default function WatchlistHeartButton({ movieId, onRemove }) {
   const [added, setAdded] = useState(false);
@@ -63,7 +65,7 @@ export default function WatchlistHeartButton({ movieId, onRemove }) {
       role="button"
       onClick={handleToggle}
     >
-      {loading ? '...' : added ? '❤️' : '♡'}
+      {loading ? '...' : added ? '❤️' : <FontAwesomeIcon icon={farHeart} className="text-danger fs-4" />}
     </div>
   );
 }
