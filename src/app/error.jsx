@@ -12,7 +12,7 @@ export default function Error({ error }) {
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>Unexpected Error</h2>
-      <p style={styles.subtitle}>{error?.message || 'Please try again later'}</p>
+      <p style={styles.subtitle}>{ 'Something went wrong. Please try again later'}</p>
       <button onClick={() => router.back()} className="btn text-center btn-warning mt-4 col-sm-8 col-md-5 col-lg-3 rounded-pill p-2 fs-5">
         Back To previous page
       </button>
