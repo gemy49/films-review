@@ -22,7 +22,7 @@ export default function WatchlistPage() {
         );
         const data = await res.json();
         setWatchlist(data.results || []);
-        fetchCount(); // ⬅️ تحديث العداد من السياق
+        fetchCount(); 
       } catch (err) {
         console.error('Error fetching watchlist:', err);
       } finally {

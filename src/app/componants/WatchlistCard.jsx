@@ -5,7 +5,6 @@ import WatchlistHeartButton from './WatchlistButton';
 export default function WatchlistCard({ movie, onRemove }) {
   return (
     <div className="card mb-4 col-md-12 col-lg-5 mx-4 shadow-sm rounded d-flex flex-row position-relative" key={movie.id}>
-      {/* قلب الواتشليست خارج اللينك علشان الضغط عليه ما يفتحش صفحة الفيلم */}
       <div className="position-absolute top-0 end-0 m-2 z-3">
         <WatchlistHeartButton movieId={movie.id} onRemove={onRemove} />
 

@@ -34,7 +34,6 @@ export default function TMDBSessionHandler() {
         if (data.success && data.session_id) {
           localStorage.setItem('session_id', data.session_id);
 
-          // Get account info
           const accountRes = await fetch(
             `https://api.themoviedb.org/3/account?api_key=${TMDB_API_KEY}&session_id=${data.session_id}`
           );
@@ -46,17 +45,15 @@ export default function TMDBSessionHandler() {
             console.warn('⚠️ session_id valid but account_id missing. Retrying might help.');
           }
 
-          // Clean URL
-          // Clean URL
+         
           const url = new URL(window.location.href);
           url.searchParams.delete('request_token');
           window.history.replaceState({}, document.title, url.toString());
 
-          // 🔁 Reload once after session/account is set
+         
           setTimeout(() => {
             window.location.reload();
-          }, 10); // نديه نصف ثانية عشان يخلص تخزين البيانات
-
+          }, 10); 
         } else {
           console.error('❌ Session creation failed. Token may be unapproved.');
         }

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../page.module.css';
 
 export default function RatingCircle({ rating }) {
-  const percentage = Math.round(rating * 10); // من 0 إلى 100
+  const percentage = Math.round(rating * 10); 
   const radius = 22;
   const stroke = 4;
   const normalizedRadius = radius - stroke * 0.5;
@@ -59,10 +59,9 @@ export default function RatingCircle({ rating }) {
   );
 }
 
-// نفس الدالة اللي استخدمناها سابقًا
 function getRatingColor(rating) {
   const percent = rating * 10;
-  if (percent >= 75) return '#28a745'; // أخضر
-  if (percent >= 50) return '#ffc107'; // أصفر
-  return '#dc3545'; // أحمر
+  if (percent >= 75) return '#28a745'; 
+  if (percent >= 50) return '#ffc107'; 
+  return '#dc3545'; 
 }

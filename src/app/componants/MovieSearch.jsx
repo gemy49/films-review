@@ -46,7 +46,7 @@ export default function MovieSearch() {
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
-    setPage(1); // ✅ reset page to 1 when query changes
+    setPage(1); 
   };
 
   return (
