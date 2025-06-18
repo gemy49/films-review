@@ -49,12 +49,12 @@ export default async function MovieDetailsPage({ params }) {
               </div>))
             }
           </div>
-          <div className="my-4 d-flex justify-content-between align-items-center w-75 flex-wrap">
-            <p ><strong>Duration:</strong> {movie.runtime} minutes</p>
-            <p><strong>language:</strong> {movie.original_language}</p>
+          <div className="my-4 d-flex justify-content-start align-items-center gap-2 flex-wrap">
+            <p style={{marginRight: '20%'}}><strong>Duration:</strong> {movie.runtime} minutes</p>
+            <p ><strong>language:</strong> {movie.original_language}</p>
           </div>
           <div className="d-flex justify-content-around align-items-center w-50">
-            <strong>studio:</strong> 
+            <strong style={{marginRight: '20%'}}>studio:</strong> 
           <div className="bg-white">
             <img
             src={`https://image.tmdb.org/t/p/w200${movie.production_companies[0].logo_path}`}
