@@ -44,12 +44,12 @@ export default async function MovieDetailsPage({ params }) {
           <div >
             {movie.genres.map((g) => (
               <div key={g.id}
-                className="badge bg-warning text-dark p-2 mx-2 rounded-pill">
+                className="badge bg-warning text-dark p-2 m-2 rounded-pill">
                 {g.name}
               </div>))
             }
           </div>
-          <div className="my-4 d-flex justify-content-between align-items-center w-50">
+          <div className="my-4 d-flex justify-content-between align-items-center w-75 flex-wrap">
             <p ><strong>Duration:</strong> {movie.runtime} minutes</p>
             <p><strong>language:</strong> {movie.original_language}</p>
           </div>
