@@ -10,13 +10,19 @@ export default function Error({ error }) {
   }, [error]);
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>Unexpected Error</h2>
-      <p style={styles.subtitle}>{ 'Something went wrong. Please try again later'}</p>
-      <button onClick={() => router.back()} className="btn text-center btn-warning mt-4 col-sm-8 col-md-5 col-lg-3 rounded-pill p-2 fs-5">
-        Back To previous page
-      </button>
-    </div>
+         <div className="container vh-100 d-flex align-items-center justify-content-center">
+  <div className="row text-center">
+    <h2 className="mb-3" style={styles.title}>Unexpected Error</h2>
+    <p className="mb-4" style={styles.subtitle}>Something went wrong. Please try again later</p>
+    <button
+      onClick={() => router.back()}
+      className="btn btn-warning col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 rounded-pill fs-5"
+    >
+      Back To previous page
+    </button>
+  </div>
+</div>
+
   );
 }
 
@@ -27,7 +33,6 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '2rem',
     backgroundColor: 'white',
     color: '#721c24',
     textAlign: 'center',

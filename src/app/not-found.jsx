@@ -2,29 +2,26 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>404</h1>
-      <p style={styles.subtitle}>  Page Not Found </p>
-      <p style={styles.description}>
-        Sorry, the page you are looking for does not exist. Please check the URL or try again later.
-      </p>
-      <Link href="/" className="btn text-center btn-warning mt-4 col-sm-8 col-md-5 col-lg-3 rounded-pill p-2 fs-5">Back To Home</Link>
+      <div className="container vh-100 d-flex align-items-center justify-content-center">
+      <div className="row text-center">
+        <h2 className="mb-3" style={styles.title}>404</h2>
+        <p className="mb-3" style={styles.subtitle}>Page Not Found</p>
+        <p className="mb-4">
+          Sorry, the page you are looking for does not exist. Please check the URL or try again later.
+        </p>
+        <Link
+          href="/"
+          className="btn btn-warning col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 rounded-pill fs-5"
+        >
+          Back To Home
+        </Link>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    minHeight: '100vh',
-    backgroundColor: '#f0f0f0',
-    color: '#333',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '2rem',
-    textAlign: 'center',
-  },
+ 
   title: {
     fontSize: '6rem',
     margin: 0,
