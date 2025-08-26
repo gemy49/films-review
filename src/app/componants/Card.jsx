@@ -12,7 +12,7 @@ export default function Card({ movie }) {
   return (
     <div className="col-md-4 col-sm-6 col-lg-3 mb-4">
       <Link href={`/movie/${movie.id}`} className="text-decoration-none text-dark">
-        <div className="card border-0 shadow-sm position-relative">
+        <div className="card border-0 shadow-sm position-relative"style={{minHeight: '480px' ,maxHeight: '480px' }}>
           <div className="position-relative">
             <img
               src={posterUrl}
